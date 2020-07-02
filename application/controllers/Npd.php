@@ -103,6 +103,17 @@ class Npd extends AUTH_Controller {
 		} else {
 			echo show_err_msg('Data Npd Gagal diverifikasi', '20px');
 		}
+	}
+	
+	public function valid() {
+		$id = $_POST['id'];
+		$result = $this->M_npd->valid($id);
+		
+		if ($result > 0) {
+			echo show_succ_msg('Data Npd Berhasil divalidasi', '20px');
+		} else {
+			echo show_err_msg('Data Npd Gagal divalidasi', '20px');
+		}
     }
     
 

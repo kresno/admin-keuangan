@@ -130,6 +130,26 @@
 		})
 	})
 
+	var id_npd;
+	$(document).on("click", ".konfirmasiValid-npd", function() {
+		id_npd = $(this).attr("data-id");
+	})
+	$(document).on("click", ".valid-dataNpd", function() {
+		var id = id_npd;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Npd/valid'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiValid').modal('hide');
+			tampilNpd();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
 
 	
 

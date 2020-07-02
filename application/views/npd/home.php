@@ -37,6 +37,8 @@
 
 <?php show_my_confirm('konfirmasiHapus', 'hapus-dataNpd', 'Hapus Data Ini?', 'Ya, Hapus Data Ini'); ?>
 <?php show_my_confirm('konfirmasiVerif', 'verif-dataNpd', 'Verifikasi Data Ini?', 'Ya, Verifikasi Data Ini'); ?>
+<?php show_my_confirm('konfirmasiValid', 'valid-dataNpd', 'Validasi Data Ini?', 'Ya, Verifikasi Data Ini'); ?>
+
 <?php
   $data['judul'] = 'Npd';
   echo show_my_modal('modals/modal_import', 'import-Npd', $data);

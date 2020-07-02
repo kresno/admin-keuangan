@@ -60,6 +60,14 @@ class M_npd extends CI_Model {
 
 		return $this->db->affected_rows();
 	}
+
+	public function valid($id) {
+		$sql = "UPDATE npd set status_valid='1' WHERE id='" .$id ."'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
 }
 
 /* End of file M_admin.php */
