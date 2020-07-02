@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SiPecinta | Dashboard</title>
+    <title>SiPencinta | Dashboard</title>
     <!-- meta -->
     <?php echo @$_meta; ?>
 
