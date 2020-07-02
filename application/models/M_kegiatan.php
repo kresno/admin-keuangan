@@ -5,8 +5,7 @@ class M_kegiatan extends CI_Model {
 	public function select_all() {
 		$this->db->select('*');
         $this->db->from('kegiatan');
-        $this->db->join('pptk', 'kegiatan.id_pptk=pptk.id');
-
+        
 		$data = $this->db->get();
 
 		return $data->result();

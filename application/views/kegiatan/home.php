@@ -4,14 +4,8 @@
 
 <div class="box">
   <div class="box-header">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-kegiatan"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
-    </div>
-    <div class="col-md-3">
-        <a href="<?php echo base_url('kegiatan/export'); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Export Data Excel</a>
-    </div>
-    <div class="col-md-3">
-        <button class="form-control btn btn-default" data-toggle="modal" data-target="#import-kegiatan"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Import Data Excel</button>
     </div>
   </div>
   <!-- /.box-header -->
@@ -20,8 +14,11 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Nama kegiatan</th>
-          <th style="text-align: center;">Aksi</th>
+          <th>Nama Urusan</th>
+          <th>Nama Program</th>
+          <th>Nama Kegiatan</th>
+          <th>Indikator Kegiatan</th>
+          <th>Anggaran</th>
         </tr>
       </thead>
       <tbody id="data-kegiatan">

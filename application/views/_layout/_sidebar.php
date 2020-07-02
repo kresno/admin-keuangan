@@ -39,13 +39,6 @@
           <span>Data Posisi</span>
         </a>
       </li>
-      
-      <li <?php if ($page == 'pptk') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Pptk'); ?>">
-          <i class="fa fa-location-arrow"></i>
-          <span>Data PPTK</span>
-        </a>
-      </li>
 
       <li <?php if ($page == 'kegiatan') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Kegiatan'); ?>">

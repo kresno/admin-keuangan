@@ -5,26 +5,28 @@ class Bku extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
         $this->load->model('M_kegiatan');
-        $this->load->model('M_pptk');
+		$this->load->model('M_pptk');
+		$this->load->model('M_bku');
 	}
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
         $data['dataKegiatan'] 	= $this->M_kegiatan->select_all();
-        $data['dataPptk'] = $this->M_pptk->select_all();
+		$data['dataPptk'] = $this->M_pptk->select_all();
+		$data['dataBku'] = $this->M_bku->select_all();
 
-		$data['page'] 		= "Kegiatan";
-		$data['judul'] 		= "Data Kegiatan";
-		$data['deskripsi'] 	= "Manage Data Kegiatan";
+		$data['page'] 		= "Buku Kas Umum";
+		$data['judul'] 		= "Data BKU";
+		$data['deskripsi'] 	= "Manage Data BKU";
 
-		$data['modal_tambah_kegiatan'] = show_my_modal('modals/modal_tambah_kegiatan', 'tambah-kegiatan', $data);
+		// $data['modal_tambah_kegiatan'] = show_my_modal('modals/modal_tambah_kegiatan', 'tambah-kegiatan', $data);
 
-		$this->template->views('kegiatan/home', $data);
+		$this->template->views('bku/home', $data);
 	}
 
 	public function tampil() {
-		$data['datakegiatan'] = $this->M_kegiatan->select_all();
-		$this->load->view('kegiatan/list_data', $data);
+		$data['dataBku'] = $this->M_bku->select_all();
+		$this->load->view('bku/list_data', $data);
 	}
 
 	public function prosesTambah() {

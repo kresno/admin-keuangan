@@ -1,14 +1,22 @@
 <?php
   $no = 1;
-  foreach ($dataPosisi as $posisi) {
+  foreach ($dataNpd as $npd) {
     ?>
     <tr>
       <td><?php echo $no; ?></td>
-      <td><?php echo $posisi->nama; ?></td>
+      <td><?php echo $npd->nomor_rek; ?></td>
+      <td><?php echo $npd->keterangan; ?></td>
+      <td><?php echo $npd->anggaran; ?></td>
+      <td><?php echo $npd->tanggal_trx; ?></td>
       <td class="text-center" style="min-width:230px;">
-        <button class="btn btn-warning update-dataPosisi" data-id="<?php echo $posisi->id; ?>"><i class="glyphicon glyphicon-repeat"></i> Update</button>
-        <button class="btn btn-danger konfirmasiHapus-posisi" data-id="<?php echo $posisi->id; ?>" data-toggle="modal" data-target="#konfirmasiHapus"><i class="glyphicon glyphicon-remove-sign"></i> Delete</button>
-        <button class="btn btn-info detail-dataPosisi" data-id="<?php echo $posisi->id; ?>"><i class="glyphicon glyphicon-info-sign"></i> Detail</button>
+        <button class="btn btn-warning update-datanpd" data-id="<?php echo $npd->id; ?>"><i class="glyphicon glyphicon-repeat"></i> Update</button>
+        <button class="btn btn-danger konfirmasiHapus-npd" data-id="<?php echo $npd->id; ?>" data-toggle="modal" data-target="#konfirmasiHapus"><i class="glyphicon glyphicon-remove-sign"></i> Delete</button>
+        <button class="btn btn-info detail-datanpd" data-id="<?php echo $npd->id; ?>"><i class="glyphicon glyphicon-info-sign"></i> Detail</button>
+        <?php if ($npd->status == 0) { echo "
+          <button class='btn btn-success konfirmasiVerif-npd' data-id='$npd->id' data-toggle='modal' data-target='#konfirmasiVerif'><i class='glyphicon glyphicon-check'></i> Verifikasi</button> "; } else {
+          echo " <button class='btn btn-default' disable><i class='glyphicon glyphicon-check'></i> Sudah diVerifikasi</button>  ";
+          }
+        ?>
       </td>
     </tr>
     <?php

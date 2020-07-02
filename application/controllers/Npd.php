@@ -4,35 +4,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Npd extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
-        $this->load->model('M_Npd');
-        $this->load->model('M_pptk');
+        $this->load->model('M_npd');
 	}
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-        $data['dataNpd'] 	= $this->M_Npd->select_all();
-        $data['dataPptk'] = $this->M_pptk->select_all();
+        $data['dataNpd'] 	= $this->M_npd->select_all();
 
 		$data['page'] 		= "Npd";
 		$data['judul'] 		= "Data Npd";
 		$data['deskripsi'] 	= "Manage Data Npd";
 
-		$data['modal_tambah_Npd'] = show_my_modal('modals/modal_tambah_Npd', 'tambah-Npd', $data);
+		$data['modal_tambah_npd'] = show_my_modal('modals/modal_tambah_npd', 'tambah-Npd', $data);
 
 		$this->template->views('Npd/home', $data);
 	}
 
 	public function tampil() {
-		$data['dataNpd'] = $this->M_Npd->select_all();
+		$data['dataNpd'] = $this->M_npd->select_all();
 		$this->load->view('Npd/list_data', $data);
 	}
 
 	public function prosesTambah() {
-		$this->form_validation->set_rules('Npd', 'Npd', 'trim|required');
+		$this->form_validation->set_rules('nomor_rek', 'nomor_rek', 'trim|required');
+		$this->form_validation->set_rules('keterangan', 'keterangan', 'trim|required');
+		$this->form_validation->set_rules('anggaran', 'anggaran', 'trim|required');
 
 		$data 	= $this->input->post();
+		
 		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_Npd->insert($data);
+			$result = $this->M_npd->insert($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -56,7 +57,9 @@ class Npd extends AUTH_Controller {
 		$data['dataNpd'] 	= $this->M_Npd->select_by_id($id);
 
 		echo show_my_modal('modals/modal_update_Npd', 'update-Npd', $data);
-	}
+    }
+    
+    
 
 	public function prosesUpdate() {
 		$this->form_validation->set_rules('Npd', 'Npd', 'trim|required');
@@ -82,14 +85,27 @@ class Npd extends AUTH_Controller {
 
 	public function delete() {
 		$id = $_POST['id'];
-		$result = $this->M_Npd->delete($id);
+		$result = $this->M_npd->delete($id);
 		
 		if ($result > 0) {
 			echo show_succ_msg('Data Npd Berhasil dihapus', '20px');
 		} else {
 			echo show_err_msg('Data Npd Gagal dihapus', '20px');
 		}
-	}
+    }
+
+    public function verif() {
+		$id = $_POST['id'];
+		$result = $this->M_npd->verif($id);
+		
+		if ($result > 0) {
+			echo show_succ_msg('Data Npd Berhasil diverifkasi', '20px');
+		} else {
+			echo show_err_msg('Data Npd Gagal diverifikasi', '20px');
+		}
+    }
+    
+
 
 	public function detail() {
 		$data['userdata'] 	= $this->userdata;

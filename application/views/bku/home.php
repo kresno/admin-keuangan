@@ -4,14 +4,11 @@
 
 <div class="box">
   <div class="box-header">
-    <div class="col-md-6" style="padding: 0;">
+    <!-- <div class="col-md-6" style="padding: 0;">
       <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-Bku"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
-    </div>
-    <div class="col-md-3">
-        <a href="<?php echo base_url('Bku/export'); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Export Data Excel</a>
-    </div>
-    <div class="col-md-3">
-        <button class="form-control btn btn-default" data-toggle="modal" data-target="#import-Bku"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Import Data Excel</button>
+    </div> -->
+    <div class="col-md-12">
+        <a href="<?php echo base_url('Bku/export'); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Download Data Excel</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -26,7 +23,6 @@
           <th>Penerimaan</th>
           <th>Pengeluaran</th>
           <th>Tanggal Transaksi</th>
-          <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
       <tbody id="data-Bku">
@@ -36,7 +32,7 @@
   </div>
 </div>
 
-<?php echo $modal_tambah_Bku; ?>
+<!-- <?php echo $modal_tambah_Bku; ?>
 
 <div id="tempat-modal"></div>
 
@@ -45,4 +41,4 @@
   $data['judul'] = 'Bku';
   $data['url'] = 'Bku/import';
   echo show_my_modal('modals/modal_import', 'import-Bku', $data);
-?>
+?> -->

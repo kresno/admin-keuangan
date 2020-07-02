@@ -12,6 +12,9 @@
 		tampilPegawai();
 		tampilPosisi();
 		tampilKota();
+		tampilNpd();
+		tampilBku();
+		tampilKegiatan();
 		<?php
 			if ($this->session->flashdata('msg') != '') {
 				echo "effect_msg();";
@@ -33,6 +36,30 @@
 		// $('.msg').hide();
 		$('.msg').show(1000);
 		setTimeout(function() { $('.msg').fadeOut(1000); }, 3000);
+	}
+
+	function tampilKegiatan() {
+		$.get('<?php echo base_url('Kegiatan/tampil'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-kegiatan').html(data);
+			refresh();
+		});
+	}
+
+	function tampilNpd() {
+		$.get('<?php echo base_url('Npd/tampil'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-npd').html(data);
+			refresh();
+		});
+	}
+
+	function tampilBku() {
+		$.get('<?php echo base_url('Bku/tampil'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-Bku').html(data);
+			refresh();
+		});
 	}
 
 	function tampilPegawai() {
@@ -62,6 +89,49 @@
 			effect_msg();
 		})
 	})
+
+	var id_pegawai;
+	$(document).on("click", ".konfirmasiHapus-npd", function() {
+		id_pegawai = $(this).attr("data-id");
+	})
+	$(document).on("click", ".hapus-dataNpd", function() {
+		var id = id_pegawai;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Npd/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilNpd();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
+	var id_npd;
+	$(document).on("click", ".konfirmasiVerif-npd", function() {
+		id_npd = $(this).attr("data-id");
+	})
+	$(document).on("click", ".verif-dataNpd", function() {
+		var id = id_npd;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Npd/verif'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiVerif').modal('hide');
+			tampilNpd();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
+
+	
 
 	$(document).on("click", ".update-dataPegawai", function() {
 		var id = $(this).attr("data-id");
@@ -227,6 +297,36 @@
 		
 		e.preventDefault();
 	});
+
+	$('#form-tambah-npd').submit(function(e) {
+		var data = $(this).serialize();
+
+		$.ajax({
+			method: 'POST',
+			url: '<?php echo base_url('Npd/prosesTambah'); ?>',
+			data: data
+		})
+		.done(function(data) {
+			var out = jQuery.parseJSON(data);
+
+			tampilNpd();
+			if (out.status == 'form') {
+				$('.form-msg').html(out.msg);
+				effect_msg_form();
+			} else {
+				document.getElementById("form-tambah-npd").reset();
+				$('#tambah-Npd').modal('hide');
+				$('.msg').html(out.msg);
+				effect_msg();
+			}
+		})
+		
+		e.preventDefault();
+	});
+
+	$('#tambah-npd').on('hidden.bs.modal', function () {
+	  $('.form-msg').html('');
+	})
 
 	$(document).on('submit', '#form-update-kota', function(e){
 		var data = $(this).serialize();
