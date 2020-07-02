@@ -54,10 +54,17 @@
         </a>
       </li>
 
+      <li <?php if ($page == 'npd') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Npd'); ?>">
+          <i class="fa fa-eye"></i>
+          <span>Buku NPD</span>
+        </a>
+      </li>
+
       <li <?php if ($page == 'bku') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Bku'); ?>">
-          <i class="fa fa-book"></i>
-          <span>Data Buku Kas Umum</span>
+          <i class="fa fa-bars"></i>
+          <span>Buku Kas Umum</span>
         </a>
       </li>
       
