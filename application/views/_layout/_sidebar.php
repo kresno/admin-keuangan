@@ -54,12 +54,13 @@
         </a>
       </li>
 
-      <li <?php if ($page == 'kegiatan') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Kegiatan'); ?>">
+      <li <?php if ($page == 'bku') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Bku'); ?>">
           <i class="fa fa-book"></i>
-          <span>Data BKK</span>
+          <span>Data Buku Kas Umum</span>
         </a>
       </li>
+      
     </ul>
     <!-- /.sidebar-menu -->
   </section>
