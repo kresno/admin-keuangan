@@ -17,12 +17,12 @@ class Npd extends AUTH_Controller {
 
 		$data['modal_tambah_npd'] = show_my_modal('modals/modal_tambah_npd', 'tambah-Npd', $data);
 
-		$this->template->views('Npd/home', $data);
+		$this->template->views('npd/home', $data);
 	}
 
 	public function tampil() {
 		$data['dataNpd'] = $this->M_npd->select_all();
-		$this->load->view('Npd/list_data', $data);
+		$this->load->view('npd/list_data', $data);
 	}
 
 	public function prosesTambah() {
