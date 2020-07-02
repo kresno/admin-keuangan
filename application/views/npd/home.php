@@ -8,10 +8,7 @@
       <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-Npd"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
     </div>
     <div class="col-md-3">
-        <a href="<?php echo base_url('Npd/export'); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Export Data Excel</a>
-    </div>
-    <div class="col-md-3">
-        <button class="form-control btn btn-default" data-toggle="modal" data-target="#import-Npd"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Import Data Excel</button>
+        <a href="<?php echo base_url('Npd/export'); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Download Data Excel</a>
     </div>
   </div>
   <!-- /.box-header -->
@@ -41,6 +38,5 @@
 <?php show_my_confirm('konfirmasiHapus', 'hapus-dataNpd', 'Hapus Data Ini?', 'Ya, Hapus Data Ini'); ?>
 <?php
   $data['judul'] = 'Npd';
-  $data['url'] = 'Npd/import';
   echo show_my_modal('modals/modal_import', 'import-Npd', $data);
 ?>

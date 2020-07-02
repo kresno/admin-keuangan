@@ -103,31 +103,31 @@ class Bku extends AUTH_Controller {
 	}
 
 	public function export() {
-		error_reporting(E_ALL);
+		// error_reporting(E_ALL);
     
-		include_once './assets/phpexcel/Classes/PHPExcel.php';
-		$objPHPExcel = new PHPExcel();
+		// include_once './assets/phpexcel/Classes/PHPExcel.php';
+		// $objPHPExcel = new PHPExcel();
 
-		$data = $this->M_kegiatan->select_all();
+		// $data = $this->M_kegiatan->select_all();
 
-		$objPHPExcel = new PHPExcel(); 
-		$objPHPExcel->setActiveSheetIndex(0); 
+		// $objPHPExcel = new PHPExcel(); 
+		// $objPHPExcel->setActiveSheetIndex(0); 
 
-		$objPHPExcel->getActiveSheet()->SetCellValue('A1', "ID"); 
-		$objPHPExcel->getActiveSheet()->SetCellValue('B1', "Nama kegiatan");
+		// $objPHPExcel->getActiveSheet()->SetCellValue('A1', "ID"); 
+		// $objPHPExcel->getActiveSheet()->SetCellValue('B1', "Nama kegiatan");
 
-		$rowCount = 2;
-		foreach($data as $value){
-		    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $value->id); 
-		    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $value->nama); 
-		    $rowCount++; 
-		} 
+		// $rowCount = 2;
+		// foreach($data as $value){
+		//     $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $value->id); 
+		//     $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $value->nama); 
+		//     $rowCount++; 
+		// } 
 
-		$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
-		$objWriter->save('./assets/excel/Data kegiatan.xlsx'); 
+		// $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
+		// $objWriter->save('./assets/excel/Data kegiatan.xlsx'); 
 
 		$this->load->helper('download');
-		force_download('./assets/excel/Data kegiatan.xlsx', NULL);
+		force_download('./assets/excel/Data BKU.xls', NULL);
 	}
 
 	public function import() {

@@ -105,29 +105,29 @@ class Npd extends AUTH_Controller {
 	public function export() {
 		error_reporting(E_ALL);
     
-		include_once './assets/phpexcel/Classes/PHPExcel.php';
-		$objPHPExcel = new PHPExcel();
+		// include_once './assets/phpexcel/Classes/PHPExcel.php';
+		// $objPHPExcel = new PHPExcel();
 
-		$data = $this->M_Npd->select_all();
+		// $data = $this->M_Npd->select_all();
 
-		$objPHPExcel = new PHPExcel(); 
-		$objPHPExcel->setActiveSheetIndex(0); 
+		// $objPHPExcel = new PHPExcel(); 
+		// $objPHPExcel->setActiveSheetIndex(0); 
 
-		$objPHPExcel->getActiveSheet()->SetCellValue('A1', "ID"); 
-		$objPHPExcel->getActiveSheet()->SetCellValue('B1', "Nama Npd");
+		// $objPHPExcel->getActiveSheet()->SetCellValue('A1', "ID"); 
+		// $objPHPExcel->getActiveSheet()->SetCellValue('B1', "Nama Npd");
 
-		$rowCount = 2;
-		foreach($data as $value){
-		    $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $value->id); 
-		    $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $value->nama); 
-		    $rowCount++; 
-		} 
+		// $rowCount = 2;
+		// foreach($data as $value){
+		//     $objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount, $value->id); 
+		//     $objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount, $value->nama); 
+		//     $rowCount++; 
+		// } 
 
-		$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
-		$objWriter->save('./assets/excel/Data Npd.xlsx'); 
+		// $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel); 
+		// $objWriter->save('./assets/excel/Data Npd.xlsx'); 
 
 		$this->load->helper('download');
-		force_download('./assets/excel/Data Npd.xlsx', NULL);
+		force_download('./assets/excel/Data NPD.xlsx', NULL);
 	}
 
 	public function import() {
