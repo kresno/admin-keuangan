@@ -21,8 +21,7 @@
             <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
 
             <p>
-              <?php echo $userdata->nama; ?> - Web Developer
-              <small>Member since Sep. 2016</small>
+              <?php echo $userdata->nama; ?> - Bappeda Kabupaten Sukabumi
             </p>
           </li>
           <!-- Menu Footer-->
