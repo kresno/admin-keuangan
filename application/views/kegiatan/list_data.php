@@ -8,7 +8,7 @@
       <td><?php echo $kegiatan->program; ?></td>
       <td><?php echo $kegiatan->nama_kegiatan; ?></td>
       <td><?php echo $kegiatan->indikator_kegiatan; ?></td>
-      <td><?php echo $kegiatan->anggaran; ?></td>
+      <td align="right"><?php echo number_format($kegiatan->anggaran); ?></td>
     </tr>
     <?php
     $no++;

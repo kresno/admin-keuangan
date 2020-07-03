@@ -23,7 +23,7 @@ class Kegiatan extends AUTH_Controller {
 	}
 
 	public function tampil() {
-		$data['datakegiatan'] = $this->M_kegiatan->select_all();
+		$data['dataKegiatan'] = $this->M_kegiatan->select_all();
 		$this->load->view('kegiatan/list_data', $data);
 	}
 
