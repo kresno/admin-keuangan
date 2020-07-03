@@ -17,6 +17,7 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Nama Kegiatan</th>
           <th>Nomor Rekening</th>
           <th>Nomor Keterangan</th>
           <th>Anggaran</th>

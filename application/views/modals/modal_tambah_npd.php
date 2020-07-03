@@ -6,6 +6,26 @@
   <form id="form-tambah-npd" method="POST">
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
+        <i class="glyphicon glyphicon-home"></i>
+      </span>
+      <select name="kegiatan" class="form-control select2" aria-describedby="sizing-addon2">
+        <option value="">
+            -- Silahkan Pilih --
+        </option>
+        <?php
+        foreach ($dataKegiatan as $kegiatan) {
+          ?>
+          <option value="<?php echo $kegiatan->nama_kegiatan; ?>">
+            <?php echo $kegiatan->nama_kegiatan; ?>
+          </option>
+          <?php
+        }
+        ?>
+      </select>
+    </div>
+
+    <div class="input-group form-group">
+      <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-user"></i>
       </span>
       <input type="text" class="form-control" placeholder="Nomor Rekening" name="nomor_rek" aria-describedby="sizing-addon2">

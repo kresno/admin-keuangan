@@ -4,9 +4,10 @@
     ?>
     <tr>
       <td><?php echo $no; ?></td>
+      <td><?php echo $npd->nama_kegiatan; ?></td>
       <td><?php echo $npd->nomor_rek; ?></td>
       <td><?php echo $npd->keterangan; ?></td>
-      <td><?php echo $npd->anggaran; ?></td>
+      <td align="right"><?php echo number_format($npd->anggaran); ?></td>
       <td><?php echo $npd->tanggal_trx; ?></td>
       <td class="text-center" style="min-width:230px;">
         <button class="btn btn-warning update-datanpd" data-id="<?php echo $npd->id; ?>"><i class="glyphicon glyphicon-repeat"></i> Update</button>

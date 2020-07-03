@@ -29,7 +29,7 @@ class M_npd extends CI_Model {
 		// $sql = "INSERT INTO npd VALUES('','" .$data['nomor_rek'].','.$data['keterangan'].','.$data['anggaran'] ."')";
 		// $sql = "INSERT INTO npd VALUES('', " .$data['nomor_rek'].",".$data['keterangan'].",".$data['anggaran']. ")";
 		// $sql = $this->db->insert('npd', $data);
-		$sql = "INSERT INTO npd VALUES('','" .$data['nomor_rek'] ."','" .$data['keterangan'] ."','" .$data['nomor_rek'] ."',CURRENT_TIMESTAMP,0)";
+		$sql = "INSERT INTO npd VALUES('','" .$data['kegiatan']."','" .$data['nomor_rek']."','" .$data['keterangan']."','" .$data['anggaran']."',CURRENT_TIMESTAMP,0,0)";
 
 
 		$this->db->query($sql);

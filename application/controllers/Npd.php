@@ -4,12 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Npd extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
+		$this->load->model('M_kegiatan');
         $this->load->model('M_npd');
 	}
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-        $data['dataNpd'] 	= $this->M_npd->select_all();
+		$data['dataNpd'] 	= $this->M_npd->select_all();
+		$data['dataKegiatan'] 	= $this->M_kegiatan->select_all();
 
 		$data['page'] 		= "Npd";
 		$data['judul'] 		= "Data Npd";
@@ -29,6 +31,7 @@ class Npd extends AUTH_Controller {
 		$this->form_validation->set_rules('nomor_rek', 'nomor_rek', 'trim|required');
 		$this->form_validation->set_rules('keterangan', 'keterangan', 'trim|required');
 		$this->form_validation->set_rules('anggaran', 'anggaran', 'trim|required');
+		$this->form_validation->set_rules('kegiatan', 'kegiatan', 'trim|required');
 
 		$data 	= $this->input->post();
 		
