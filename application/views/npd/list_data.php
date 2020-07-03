@@ -21,7 +21,7 @@
 
         <?php if ($npd->status_valid == 0) { echo "
           <button class='btn btn-primary konfirmasiValid-npd' data-id='$npd->id' data-toggle='modal' data-target='#konfirmasiValid'><i class='glyphicon glyphicon-tag'></i> Validasi </button> "; } else {
-          echo " <button class='btn btn-default' disable><i class='glyphicon glyphicon-check'></i> Sudah diValidasi</button>  ";
+          echo " <button class='btn btn-default' disable><i class='glyphicon glyphicon-tag'></i> Sudah diValidasi</button>  ";
           }
         ?>
       </td>
